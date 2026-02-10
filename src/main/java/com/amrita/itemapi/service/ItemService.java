@@ -10,10 +10,11 @@ import java.util.List;
 public class ItemService {
 
     private final List<Item> items = new ArrayList<>();
+    private int counter = 1; // ID generator
 
     public ItemService() {
-        items.add(new Item(1, "Laptop", "Electronics item"));
-        items.add(new Item(2, "Mobile", "Smartphone device"));
+        items.add(new Item(counter++, "Laptop", "Electronics item"));
+        items.add(new Item(counter++, "Mobile", "Smartphone device"));
     }
 
     public List<Item> getAllItems() {
@@ -29,4 +30,11 @@ public class ItemService {
         return null;
     }
 
+    // ✅ ONLY ONE addItem method
+    public Item addItem(Item item) {
+        item.setId(counter++);
+        items.add(item);
+        return item;
+    }
 }
+

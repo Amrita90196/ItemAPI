@@ -1,0 +1,19 @@
+### Get all items
+GET http://localhost:8080/items
+Accept: application/json
+
+
+### Get item by ID
+GET http://localhost:8080/items/1
+Accept: application/json
+
+
+### Add a new item
+POST http://localhost:8080/items
+Content-Type: application/json
+
+{
+  "id": 3,
+  "name": "Tablet",
+  "description": "Portable device"
+}
