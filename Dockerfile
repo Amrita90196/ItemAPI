@@ -7,13 +7,15 @@ WORKDIR /app
 
 # Copy pom.xml first (for dependency caching)
 COPY pom.xml .
-RUN mvn dependency:go-offline
+COPY .mvn .mvn
+COPY mvnw .
+RUN ./mvnw -B -q dependency:go-offline
 
 # Copy source code
-COPY src ./src
+COPY src src
 
 # Build the application
-RUN mvn clean package -DskipTests
+RUN ./mvnw -B -q package -DskipTests
 
 
 # =========================
