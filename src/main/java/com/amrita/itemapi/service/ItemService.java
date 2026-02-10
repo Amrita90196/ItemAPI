@@ -19,4 +19,14 @@ public class ItemService {
     public List<Item> getAllItems() {
         return items;
     }
+
+    public Item getItemById(int id) {
+        for (Item item : items) {
+            if (item.getId() == id) {
+                return item;
+            }
+        }
+        return null;
+    }
+
 }
